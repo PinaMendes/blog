@@ -1,5 +1,10 @@
 package main.java.br.com.gabriel.blog.controle;
 
+/**
+ * Classe com o controle das postagens
+ * @author  Gabriel Rubens
+ */
+
 import java.util.Calendar;
 
 import main.java.br.com.gabriel.blog.dao.Dao;
@@ -22,12 +27,18 @@ public class PostagemController {
 	private Result result;
 	private Dao<Postagem> postagemDao;
 
+	/**
+	* Construtor do controle
+	*
+	* @param  postagemDao - dao que pra interaçao com o banco
+	* @param  result - objeto do VRpator que redireciona
+	*/
+	
 	public PostagemController(Dao<Postagem> postagemDao, Result result) {
 		this.postagemDao = postagemDao;
 		this.result = result;
 	}
 
-	// public List<Postagem> index() {
 	@Get
 	@Path("/index")
 	public void index() {

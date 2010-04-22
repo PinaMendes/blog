@@ -1,5 +1,10 @@
 package main.java.br.com.gabriel.blog.controle;
 
+/**
+ * Classe com o principal controle do sistema
+ * @author  Gabriel Rubens
+ */
+
 import java.util.List;
 
 import main.java.br.com.gabriel.blog.dao.Dao;
@@ -19,10 +24,16 @@ public class IndexController {
 		this.postagemDao = postagemDao;
 	}
 
+	
+	/**
+	* Divisao inteira de dois numeros
+	*
+	* @return Todos as Postagens  
+	*/
 	@Get
 	@Path("/")
 	public List<Postagem> index() {
-		// return null;
+		// TODO Melhorar para retonar paginado
 		return postagemDao.buscaTodas();
 	}
 }

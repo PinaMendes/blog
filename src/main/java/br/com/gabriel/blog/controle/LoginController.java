@@ -1,5 +1,10 @@
 package main.java.br.com.gabriel.blog.controle;
 
+/**
+ * Classe com o controle de login do sistema
+ * @author  Gabriel Rubens
+ */
+
 import javax.servlet.http.HttpSession;
 
 import main.java.br.com.gabriel.blog.dao.UsuarioDao;
@@ -28,6 +33,16 @@ public class LoginController {
 	private Validator validator;
 	private final HttpSession httpSession;
 
+	/**
+	* Construtor do controle
+	* Recebe todos os parametros po injeçao 
+	*
+	* @param  usuarioDao - dao que será utilizado para as ações com o banco
+	* @param usuarioLogado - objeto que contem o usuario logado no sistema
+	* @param result - objeto do VRpator que redireciona
+	* @param  validator - objeto de validação do VRaptor
+	* @param httpSession - esse contrutor recebe um HttpSession para poder controlar a sessao
+	*/
 	public LoginController(UsuarioDao usuarioDao, UsuarioLogado usuarioLogado,
 			Result result, Validator validator, HttpSession httpSession) {
 		this.usuarioDao = usuarioDao;
@@ -37,11 +52,17 @@ public class LoginController {
 		this.httpSession = httpSession;
 	}
 
+	/**
+	* Vai para a pagina de login 
+	*/
 	@Get
 	@Path("")
 	public void login() {
 	}
 
+	/**
+	* Tira o usuario da sessao, cria uma nova e redireciona para o index 
+	*/
 	@Get
 	@Path("/sair")
 	public void sair() {
@@ -56,6 +77,10 @@ public class LoginController {
 
 	}
 
+	/**
+	 * Validacao de usuario
+	 * @param usuario esse usuario e recebido pelos campos da JSP Login
+	 */
 	@Post
 	@Path("")
 	public void autentica(final Usuario usuario) {
